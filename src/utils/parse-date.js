@@ -122,6 +122,11 @@ const toDurations = (matches) => {
 
 module.exports = {
     parseDate: (date, ...options) => dayjs(date, ...options).toDate(),
+    unixDate: (date, ...options) => dayjs(date, ...options).valueOf(),
+    atomDate: (date, ...options) => dayjs(date, ...options)
+		.format('YYYY-MM-DD[T]HH:mm:ss[Z]'),
+    rssDate: (date, offset, ...options) => dayjs(date, ...options)
+		.format('ddd, DD MMM YYYY HH:mm:ss ' + offset),
     parseRelativeDate: (date) => {
         // 预处理日期字符串 date
 
